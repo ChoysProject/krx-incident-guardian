@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "for i in python3 python py; do if \"$i\" -c \"\" </dev/null >/dev/null 2>&1; then exec \"$i\" \"${CLAUDE_PROJECT_DIR}/tools/save_log.py\" --tool claude-code; fi; done"
+            "command": "for i in python3 python py; do if \"$i\" -c \"\" </dev/null >/dev/null 2>&1; then exec \"$i\" \"${CLAUDE_PROJECT_DIR}/src/tools/save_log.py\" --tool claude-code; fi; done"
           }
         ]
       }
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "for i in python3 python py; do if \"$i\" -c \"\" </dev/null >/dev/null 2>&1; then exec \"$i\" \"${CLAUDE_PROJECT_DIR}/tools/save_log.py\" --tool claude-code; fi; done"
+            "command": "for i in python3 python py; do if \"$i\" -c \"\" </dev/null >/dev/null 2>&1; then exec \"$i\" \"${CLAUDE_PROJECT_DIR}/src/tools/save_log.py\" --tool claude-code; fi; done"
           }
         ]
       }

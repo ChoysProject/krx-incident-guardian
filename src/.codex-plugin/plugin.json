@@ -1,0 +1,16 @@
+{
+  "name": "krx-incident-guardian",
+  "version": "1.0.0",
+  "description": "KRX 소켓 전문 통신 로그를 분석하여 장애를 3단계로 감지하고 대응 절차를 안내하는 Codex 플러그인",
+  "author": {
+    "name": "ChoYoungSang",
+    "email": "charm4860as@gmail.com"
+  },
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "KRX 장애예방 가디언",
+    "shortDescription": "KRX 소켓 전문 로그 분석 → 3단계 장애 감지 및 대응",
+    "category": "Productivity"
+  }
+}

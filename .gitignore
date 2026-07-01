@@ -3,7 +3,7 @@ logs/claude-code/
 logs/codex/
 
 # monitor.py 자동 생성 리포트
-reports/
+src/reports/
 
 # Python
 __pycache__/

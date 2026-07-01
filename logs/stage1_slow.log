@@ -12,6 +12,6 @@
 2026-07-01 09:05:04.001 [INFO] [SEND] tr_cd=ST0301 tr_seq=00000006 data_len=00192 conn_id=KRX-PRIMARY-01
 2026-07-01 09:05:04.058 [INFO] [RECV] tr_cd=ST0301 tr_seq=00000006 data_len=00384 result_cd=00000 result_msg=정상처리 elapsed=57ms conn_id=KRX-PRIMARY-01
 2026-07-01 09:05:05.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000007 data_len=00256 conn_id=KRX-PRIMARY-01
-2026-07-01 09:05:05.656 [WARN] [RECV] tr_cd=FC0101 tr_seq=00000007 data_len=00512 result_cd=10001 result_msg=처리지연경고 elapsed=655ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:05:05.656 [WARN] [RECV] tr_cd=FC0101 tr_seq=00000007 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=655ms conn_id=KRX-PRIMARY-01
 2026-07-01 09:05:06.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000008 data_len=00256 conn_id=KRX-PRIMARY-01
-2026-07-01 09:05:06.903 [WARN] [RECV] tr_cd=FC0101 tr_seq=00000008 data_len=00512 result_cd=10001 result_msg=처리지연경고 elapsed=902ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:05:06.903 [WARN] [RECV] tr_cd=FC0101 tr_seq=00000008 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=902ms conn_id=KRX-PRIMARY-01

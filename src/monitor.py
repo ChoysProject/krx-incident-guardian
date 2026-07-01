@@ -8,7 +8,7 @@ Parses KRX socket 전문(電文) communication logs:
 
 SEND/RECV 쌍 매칭(tr_cd + tr_seq) 및 result_cd 분석으로 단계 판정:
   Stage 0 : 정상
-  Stage 1 : 예방  (elapsed >= ELAPSED_WARN_MS 또는 result_cd=10001)
+  Stage 1 : 예방  (elapsed >= ELAPSED_WARN_MS — 점진적 증가 또는 급격한 스파이크)
   Stage 2 : 장애  (SOCK 오류 / 미응답 SEND / result_cd 2x·3x·9x)
 """
 
@@ -23,8 +23,8 @@ from pathlib import Path
 
 ELAPSED_WARN_MS = 300     # 1단계 예방 임계값 (ms)
 POLL_INTERVAL_SEC = 5
-PROJECT_ROOT = Path(__file__).parent
-LOG_DIR = PROJECT_ROOT / "logs"
+PROJECT_ROOT = Path(__file__).parent          # src/
+LOG_DIR = PROJECT_ROOT.parent / "logs"        # repo root/logs/
 INCIDENT_LIST = PROJECT_ROOT / "incident_list.md"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
@@ -100,11 +100,7 @@ def assess_stage(messages: dict, pairs: dict) -> int:
 
     stage = 0
     for _, r in pairs["paired"]:
-        # 4. KRX 처리지연경고 result_cd → 1단계
-        if r.get("result_cd") == "10001":
-            stage = 1
-        # 5. elapsed 임계값 초과 → 1단계
-        elif r.get("elapsed_ms", 0) >= ELAPSED_WARN_MS:
+        if r.get("elapsed_ms", 0) >= ELAPSED_WARN_MS:
             stage = 1
     return stage
 
@@ -115,10 +111,14 @@ def build_prompt(raw: str, stage: int, log_file: str, messages: dict, pairs: dic
         2: "전문 오류 / 소켓 장애 (2단계: 신속 대응 + 3단계: 재발 방지)",
     }
 
-    slow_pairs = [
-        f"  tr_cd={r['tr_cd']} tr_seq={r['tr_seq']} elapsed={r.get('elapsed_ms')}ms result_cd={r.get('result_cd')} result_msg={r.get('result_msg')}"
+    elapsed_series = [
+        f"  tr_cd={r['tr_cd']} tr_seq={r['tr_seq']} elapsed={r.get('elapsed_ms')}ms"
         for _, r in pairs["paired"]
-        if r.get("elapsed_ms", 0) >= ELAPSED_WARN_MS or r.get("result_cd") == "10001"
+    ]
+    slow_pairs = [
+        f"  tr_cd={r['tr_cd']} tr_seq={r['tr_seq']} elapsed={r.get('elapsed_ms')}ms result_cd={r.get('result_cd')}"
+        for _, r in pairs["paired"]
+        if r.get("elapsed_ms", 0) >= ELAPSED_WARN_MS
     ]
     unmatched = [
         f"  tr_cd={s['tr_cd']} tr_seq={s['tr_seq']} (RECV 없음 — 타임아웃 추정)"
@@ -131,8 +131,10 @@ def build_prompt(raw: str, stage: int, log_file: str, messages: dict, pairs: dic
     ]
 
     summary_lines = []
+    if elapsed_series:
+        summary_lines.append("[elapsed 시계열 — 전체 전문]\n" + "\n".join(elapsed_series))
     if slow_pairs:
-        summary_lines.append("[지연/경고 전문]\n" + "\n".join(slow_pairs))
+        summary_lines.append("[임계값 초과 전문]\n" + "\n".join(slow_pairs))
     if unmatched:
         summary_lines.append("[미응답 전문]\n" + "\n".join(unmatched))
     if sock_errors:
@@ -154,8 +156,9 @@ def call_ai(prompt: str) -> str:
             result = subprocess.run(
                 [cli, "-p", prompt],
                 capture_output=True, text=True, timeout=120,
+                encoding="utf-8", errors="replace",
             )
-            if result.returncode == 0:
+            if result.returncode == 0 and result.stdout:
                 return result.stdout.strip()
         except FileNotFoundError:
             continue
@@ -241,7 +244,7 @@ def monitor_once(log_file: str) -> None:
     print(f"  감지 단계: {stage}")
 
     if stage == 0:
-        print("  정상 — 추가 조치 없음.")
+        print("  정상 - 추가 조치 없음.")
         return
 
     prompt = build_prompt(raw, stage, log_file, messages, pairs)
