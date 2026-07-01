@@ -1,0 +1,12 @@
+2026-07-01 09:10:00.001 [INFO] KRX_API endpoint=/order/submit latency=44ms status=OK
+2026-07-01 09:10:00.512 [INFO] KRX_API endpoint=/market/quote latency=32ms status=OK
+2026-07-01 09:10:01.003 [WARN] KRX_API endpoint=/order/submit latency=1521ms status=OK
+2026-07-01 09:10:02.514 [WARN] KRX_API endpoint=/order/submit latency=2347ms status=OK
+2026-07-01 09:10:04.005 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
+2026-07-01 09:10:04.516 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
+2026-07-01 09:10:05.007 [ERROR] KRX_API endpoint=/market/quote latency=-1ms status=ERR_HOST_UNREACHABLE error_code=E0021
+2026-07-01 09:10:05.518 [ERROR] KRX_API endpoint=/settlement/confirm latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
+2026-07-01 09:10:06.009 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
+2026-07-01 09:10:06.520 [ERROR] KRX_API endpoint=/market/quote latency=-1ms status=ERR_HOST_UNREACHABLE error_code=E0021
+2026-07-01 09:10:07.011 [ERROR] KRX_API endpoint=/settlement/confirm latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
+2026-07-01 09:10:07.522 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043

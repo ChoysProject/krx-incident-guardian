@@ -1,0 +1,12 @@
+2026-07-01 09:00:00.001 [INFO] KRX_API endpoint=/order/submit latency=42ms status=OK
+2026-07-01 09:00:00.512 [INFO] KRX_API endpoint=/market/quote latency=31ms status=OK
+2026-07-01 09:00:01.003 [INFO] KRX_API endpoint=/settlement/confirm latency=55ms status=OK
+2026-07-01 09:00:01.514 [INFO] KRX_API endpoint=/order/submit latency=38ms status=OK
+2026-07-01 09:00:02.005 [INFO] KRX_API endpoint=/market/quote latency=29ms status=OK
+2026-07-01 09:00:02.516 [INFO] KRX_API endpoint=/settlement/confirm latency=61ms status=OK
+2026-07-01 09:00:03.007 [INFO] KRX_API endpoint=/order/submit latency=44ms status=OK
+2026-07-01 09:00:03.518 [INFO] KRX_API endpoint=/market/quote latency=33ms status=OK
+2026-07-01 09:00:04.009 [INFO] KRX_API endpoint=/settlement/confirm latency=58ms status=OK
+2026-07-01 09:00:04.520 [INFO] KRX_API endpoint=/order/submit latency=41ms status=OK
+2026-07-01 09:00:05.011 [INFO] KRX_API endpoint=/market/quote latency=27ms status=OK
+2026-07-01 09:00:05.522 [INFO] KRX_API endpoint=/settlement/confirm latency=53ms status=OK

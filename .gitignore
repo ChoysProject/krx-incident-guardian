@@ -1,0 +1,14 @@
+# AI 세션 로그 (save_log.py 자동 생성)
+logs/claude-code/
+logs/codex/
+
+# monitor.py 자동 생성 리포트
+reports/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 환경 변수
+.env
