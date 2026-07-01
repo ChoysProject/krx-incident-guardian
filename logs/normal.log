@@ -1,12 +1,17 @@
-2026-07-01 09:00:00.001 [INFO] KRX_API endpoint=/order/submit latency=42ms status=OK
-2026-07-01 09:00:00.512 [INFO] KRX_API endpoint=/market/quote latency=31ms status=OK
-2026-07-01 09:00:01.003 [INFO] KRX_API endpoint=/settlement/confirm latency=55ms status=OK
-2026-07-01 09:00:01.514 [INFO] KRX_API endpoint=/order/submit latency=38ms status=OK
-2026-07-01 09:00:02.005 [INFO] KRX_API endpoint=/market/quote latency=29ms status=OK
-2026-07-01 09:00:02.516 [INFO] KRX_API endpoint=/settlement/confirm latency=61ms status=OK
-2026-07-01 09:00:03.007 [INFO] KRX_API endpoint=/order/submit latency=44ms status=OK
-2026-07-01 09:00:03.518 [INFO] KRX_API endpoint=/market/quote latency=33ms status=OK
-2026-07-01 09:00:04.009 [INFO] KRX_API endpoint=/settlement/confirm latency=58ms status=OK
-2026-07-01 09:00:04.520 [INFO] KRX_API endpoint=/order/submit latency=41ms status=OK
-2026-07-01 09:00:05.011 [INFO] KRX_API endpoint=/market/quote latency=27ms status=OK
-2026-07-01 09:00:05.522 [INFO] KRX_API endpoint=/settlement/confirm latency=53ms status=OK
+2026-07-01 09:00:00.001 [INFO] [SOCK] event=CONNECTED conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:00.002 [INFO] [SEND] tr_cd=SY0001 tr_seq=00000001 data_len=00064 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:00.024 [INFO] [RECV] tr_cd=SY0001 tr_seq=00000001 data_len=00128 result_cd=00000 result_msg=정상처리 elapsed=22ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:00.025 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000002 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:00.068 [INFO] [RECV] tr_cd=FC0101 tr_seq=00000002 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=43ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:00.070 [INFO] [SEND] tr_cd=MD0201 tr_seq=00000003 data_len=00128 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:00.098 [INFO] [RECV] tr_cd=MD0201 tr_seq=00000003 data_len=01024 result_cd=00000 result_msg=정상처리 elapsed=28ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:01.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000004 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:01.049 [INFO] [RECV] tr_cd=FC0101 tr_seq=00000004 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=48ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:01.051 [INFO] [SEND] tr_cd=ST0301 tr_seq=00000005 data_len=00192 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:01.112 [INFO] [RECV] tr_cd=ST0301 tr_seq=00000005 data_len=00384 result_cd=00000 result_msg=정상처리 elapsed=61ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:02.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000006 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:02.036 [INFO] [RECV] tr_cd=FC0101 tr_seq=00000006 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=35ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:02.038 [INFO] [SEND] tr_cd=MD0201 tr_seq=00000007 data_len=00128 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:02.065 [INFO] [RECV] tr_cd=MD0201 tr_seq=00000007 data_len=01024 result_cd=00000 result_msg=정상처리 elapsed=27ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:03.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000008 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:00:03.039 [INFO] [RECV] tr_cd=FC0101 tr_seq=00000008 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=38ms conn_id=KRX-PRIMARY-01

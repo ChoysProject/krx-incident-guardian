@@ -1,12 +1,14 @@
-2026-07-01 09:10:00.001 [INFO] KRX_API endpoint=/order/submit latency=44ms status=OK
-2026-07-01 09:10:00.512 [INFO] KRX_API endpoint=/market/quote latency=32ms status=OK
-2026-07-01 09:10:01.003 [WARN] KRX_API endpoint=/order/submit latency=1521ms status=OK
-2026-07-01 09:10:02.514 [WARN] KRX_API endpoint=/order/submit latency=2347ms status=OK
-2026-07-01 09:10:04.005 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
-2026-07-01 09:10:04.516 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
-2026-07-01 09:10:05.007 [ERROR] KRX_API endpoint=/market/quote latency=-1ms status=ERR_HOST_UNREACHABLE error_code=E0021
-2026-07-01 09:10:05.518 [ERROR] KRX_API endpoint=/settlement/confirm latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
-2026-07-01 09:10:06.009 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
-2026-07-01 09:10:06.520 [ERROR] KRX_API endpoint=/market/quote latency=-1ms status=ERR_HOST_UNREACHABLE error_code=E0021
-2026-07-01 09:10:07.011 [ERROR] KRX_API endpoint=/settlement/confirm latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
-2026-07-01 09:10:07.522 [ERROR] KRX_API endpoint=/order/submit latency=-1ms status=ERR_CONNECTION_TIMEOUT error_code=E0043
+2026-07-01 09:10:00.001 [INFO] [SOCK] event=CONNECTED conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:00.002 [INFO] [SEND] tr_cd=SY0001 tr_seq=00000001 data_len=00064 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:00.025 [INFO] [RECV] tr_cd=SY0001 tr_seq=00000001 data_len=00128 result_cd=00000 result_msg=정상처리 elapsed=23ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:00.026 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000002 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:00.071 [INFO] [RECV] tr_cd=FC0101 tr_seq=00000002 data_len=00512 result_cd=00000 result_msg=정상처리 elapsed=45ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:01.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000003 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:01.523 [WARN] [RECV] tr_cd=FC0101 tr_seq=00000003 data_len=00512 result_cd=10001 result_msg=처리지연경고 elapsed=522ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:02.001 [INFO] [SEND] tr_cd=FC0101 tr_seq=00000004 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:04.001 [WARN] [RECV] tr_cd=FC0101 tr_seq=00000004 data_len=00512 result_cd=20002 result_msg=응답타임아웃 elapsed=2000ms conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:04.002 [ERROR] [SOCK] event=DISCONNECTED conn_id=KRX-PRIMARY-01 reason=CONNECTION_RESET
+2026-07-01 09:10:04.003 [ERROR] [SEND] tr_cd=FC0101 tr_seq=00000005 data_len=00256 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:04.004 [ERROR] [SEND] tr_cd=MD0201 tr_seq=00000006 data_len=00128 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:04.005 [ERROR] [SEND] tr_cd=ST0301 tr_seq=00000007 data_len=00192 conn_id=KRX-PRIMARY-01
+2026-07-01 09:10:09.001 [ERROR] [RECV] tr_cd=FC0101 tr_seq=00000005 data_len=00128 result_cd=20001 result_msg=연결오류 elapsed=-1ms conn_id=KRX-PRIMARY-01
