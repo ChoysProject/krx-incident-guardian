@@ -24,7 +24,7 @@ from pathlib import Path
 ELAPSED_WARN_MS = 300     # 1단계 예방 임계값 (ms)
 POLL_INTERVAL_SEC = 5
 PROJECT_ROOT = Path(__file__).parent          # src/
-LOG_DIR = PROJECT_ROOT.parent / "logs"        # repo root/logs/
+LOG_DIR = PROJECT_ROOT / "sample-logs"        # src/sample-logs/
 INCIDENT_LIST = PROJECT_ROOT / "incident_list.md"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 
@@ -222,15 +222,27 @@ def save_incident(messages: dict, pairs: dict, ai_output: str) -> None:
     print(f"[3단계] 장애 내용 저장 완료: {report_path}")
 
 
+_watched_offsets: dict[str, int] = {}
+
+
 def monitor_once(log_file: str) -> None:
     path = LOG_DIR / log_file
     if not path.exists():
         print(f"[WARN] 로그 파일 없음: {path}")
         return
 
+    current_size = path.stat().st_size
+    last_offset = _watched_offsets.get(log_file, 0)
+    if current_size <= last_offset:
+        return
+
     print(f"[{datetime.now().strftime('%H:%M:%S')}] {log_file} 분석 중...")
 
-    raw = path.read_text(encoding="utf-8")
+    with path.open(encoding="utf-8") as f:
+        f.seek(last_offset)
+        raw = f.read()
+    _watched_offsets[log_file] = current_size
+
     messages = parse_messages(raw)
     pairs = match_pairs(messages)
 
